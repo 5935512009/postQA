@@ -18,7 +18,6 @@
                     <td>{{$item->title}}</td>
                     <td>{{$item->created_at}}</td>
                     <td><a href="{{ route('answer', ['id_questionnaire' => $item->id]) }}" class="btn btn-success">ตอบ</a></td>
-
                 </tr>
               @endforeach
             </tbody>

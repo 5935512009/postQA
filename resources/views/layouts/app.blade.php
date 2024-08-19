@@ -24,9 +24,12 @@
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                
-                     <a class="nav-link" href="/bangkok-post/public/questionnaires">questionnaires</a>
-            
+                    <div>
+                        <a class="nav-link d-inline-block me-3" href="/bangkok-post/public/questionnaires">questionnaires </a>
+                         <a class="nav-link d-inline-block me-3 " href="/bangkok-post/public/myAnswers">My Answer</a>
+                         <a class="nav-link d-inline-block me-3 " href="/bangkok-post/public/createquestion">create question</a>
+                    </div>
+                        
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">

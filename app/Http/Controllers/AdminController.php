@@ -22,7 +22,7 @@ class AdminController extends Controller
     }
     function questions()
     {
-           
+
         $question = DB::table('questionnaires')->get();
         return view(("questionnaires"), compact('question'));
     }
@@ -77,5 +77,50 @@ foreach ($answers as $id_question => $answer_text) {
 
         return redirect()->route('questionnaires')->with('success', 'คำตอบของคุณถูกบันทึกแล้ว!');
     }
+    public function myAnswers()
+{
+    // Retrieve the current logged-in user's ID
+    $userId = Auth::id();
+
+    // Retrieve the answers that the user has provided
+    $answers = DB::table('answers')
+        ->where('id_user', $userId)
+        ->get();
+
+    // Retrieve the related questions
+    $questionIds = $answers->pluck('id_questions');
+    $questions = DB::table('questions')
+        ->whereIn('id', $questionIds)
+        ->get();
+
+    return view('myAnswers', compact('answers', 'questions'));
+}
+
+public function storeQuestionnaire(Request $request)
+{
+    // สร้าง questionnaire ใหม่
+    $questionnaireId = DB::table('questionnaires')->insertGetId([
+        'title' => $request->input('title'),
+        'description' => $request->input('description'),
+        'created_at' => now(),
+        'updated_at' => now(),
+    ]);
+
+    // สร้าง questions
+    $questions = $request->input('questions');
+    foreach ($questions as $question) {
+        if ($question) {
+            DB::table('questions')->insert([
+                'content' => $question,
+                'id_questionnaires' => $questionnaireId,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ]);
+        }
+    }
+
+    return redirect()->route('questionnaires')->with('success', 'Questionnaire created successfully!');
+}
+
     
 }

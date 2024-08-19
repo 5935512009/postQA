@@ -17,7 +17,7 @@ Route::get('blogs', [AdminController::class,'index'])->name('blogs'); //  name('
 Route::get('questionnaires', [AdminController::class,'questions'])->name('questionnaires')->middleware('auth');
 Route::get('answer/{id_questionnaire}', [AdminController::class, 'answer'])->name('answer')->middleware('auth');
 Route::post('store_answer', [AdminController::class, 'storeAnswer'])->name('store_answer')->middleware('auth');
- 
+Route::get('/myAnswers', [AdminController::class, 'myAnswers'])->name('myAnswers')->middleware('auth');
 
 // ------- this route test about connect database successful
 Route::get('database', function () {
@@ -37,9 +37,14 @@ Route::get('admin/username/Bay', function(){
 })->name('login');
 
 Route::fallback(function(){
-    return view('fallback');
+    return view('questionnaires');
 }); 
 
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('createquestion', function() {
+    return view('createquestion');
+})->name('createquestion');
+
+Route::post('store-questionnaire', [AdminController::class, 'storeQuestionnaire'])->name('storeQuestionnaire');
