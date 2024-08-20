@@ -3,7 +3,7 @@
     * เปิดเทอร์มินัลหรือ Command Prompt แล้วใช้คำสั่งด้านล่างเพื่อทำการ clone โปรเจคจาก GitHub ลงในเครื่องของคุณ:
       * git clone https://github.com/5935512009/postQA.git
     * ให้วางโฟลเดอร์ที่ clone มานี้ในไดเรกทอรี /htdocs ภายในโฟลเดอร์ xampp เพื่อให้สามารถเชื่อมต่อกับฐานข้อมูล phpMyAdmin ได้
-2. ปิดโปรเจคใน VSCode:
+2. เปิดโปรเจคใน VSCode:
     * เปิดโฟลเดอร์โปรเจคใน Visual Studio Code (VSCode)
     * ใน VSCode ให้เปิด Terminal และใช้คำสั่งนี้เพื่อติดตั้ง dependencies ที่จำเป็น:
        * npm install
