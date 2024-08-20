@@ -1,19 +1,35 @@
 วิธีการเปิดโปรเจค postQA (Laravel Framework)
-1. ทำการใช้คำสั่ง git clone (ตามด้วยชื่อโปรเจค) เพื่อทำการ clone โปรเจค โดยที่ให้ไปวางไว้ในไฟล์ /htdocs ใน folder xampp เพื่อที่จะสามารถใช้งาน database phpMyAdmin ได้
-2. เปิดโปรเจคด้วยโปรแกรม VScode หลังจากนั้นใน terminal ทำการติดตั้งส่วนเสริมโดยใช้คำสั่ง npm install
-3. ต่อไปนี้จะเป็นส่วนเชื่อมต่อ database โดยจะอยู่ในไฟล์ .env เข้าไปในหน้า .env แล้วหา ส่วนเชื่อมต่อ database ดังหัวข้อด้านล่าง ใส่ข้อมูลชื่อ database username และ password ให้เรียบร้อย(อย่างลืมเอา # ออกด้วย)
-* DB_CONNECTION=mysql
-* DB_HOST=127.0.0.1
-* DB_PORT=3306 หรือ 3308 // หากเชื่อมต่อฐานข้อมูลไม่ได้ให้ไปดูที่ XAMPP ในส่วนของ MySQL Database ให้ไปดูที่ configure ว่าอยู่ PORT ใหน
-* DB_DATABASE= ใส่ชื่อdatabase ที่สร้างใน phpMyAdmin
-* DB_USERNAME=root
-* DB_PASSWORD=
-4. ทำการเปิด server ใน XAMPP โดยเข้าไปที่โปรแกรม XAMPP กดไปในหน้า Manage Servers แล้วstart MySQL Database กับ Apache Web Server
-5. หลังจากนั้นกลับมาที่หน้า VSCode ในส่วน terminal ใช้คำสั่ง php artisan migrate เพื่อทำการสร้าง table ใน database 
-6. หลังจากสร้าง table เรียบร้อยแล้ว หลังจากนี้จะเป็นการเปิดหน้าเว็บ
-7. เข้าผ่านทาง localhost โดยเอามใช้ link นี้  http://localhost/bangkok-post/public/
-8. ทำการสร้าง user เพื่อเข้าใช้งานโปรเจค
-9. หลังจากนั้นเข้าไปในหน้า create question เพื่อสร้างคำถาม 10 ข้อ 
-10. หลังจากสร้างคำถามเรียบร้อยแล้วเข้าไปหน้า questionnaires เพื่อดู หัวข้อคำถาม
-11. กดที่ “ตอบ” เพื่อเข้าไปหน้า question ไปตอบคำถาม
-12. หลังจากตอบคำถามเรียบร้อยสามารถเข้าไปดูคำตอบของเราได้ในหน้า My Answer
+1. Clone โปรเจค:
+    เปิดเทอร์มินัลหรือ Command Prompt แล้วใช้คำสั่งด้านล่างเพื่อทำการ clone โปรเจคจาก GitHub ลงในเครื่องของคุณ:
+       git clone https://github.com/5935512009/postQA.git
+    ให้วางโฟลเดอร์ที่ clone มานี้ในไดเรกทอรี /htdocs ภายในโฟลเดอร์ xampp เพื่อให้สามารถเชื่อมต่อกับฐานข้อมูล phpMyAdmin ได้
+2. ปิดโปรเจคใน VSCode:
+    เปิดโฟลเดอร์โปรเจคใน Visual Studio Code (VSCode)
+    ใน VSCode ให้เปิด Terminal และใช้คำสั่งนี้เพื่อติดตั้ง dependencies ที่จำเป็น:
+       npm install
+3. การเชื่อมต่อกับฐานข้อมูล:
+    เปิดไฟล์ .env ในโฟลเดอร์หลักของโปรเจค
+    แก้ไขค่าการเชื่อมต่อกับฐานข้อมูลตามที่กำหนด โดยกรอกข้อมูลชื่อฐานข้อมูล (DB_DATABASE), ชื่อผู้ใช้ (DB_USERNAME), และรหัสผ่าน (DB_PASSWORD) ให้ถูกต้อง (อย่าลืมลบ # ข้างหน้าคำสั่งที่เกี่ยวข้องออก)
+        DB_CONNECTION=mysql
+        DB_HOST=127.0.0.1
+        DB_PORT=3306 หรือ 3308 // หากเชื่อมต่อฐานข้อมูลไม่ได้ ให้ตรวจสอบใน XAMPP ว่า MySQL Database ใช้ PORT ใด
+        DB_DATABASE=ชื่อฐานข้อมูลที่สร้างใน phpMyAdmin
+        DB_USERNAME=root
+        DB_PASSWORD=
+4. เริ่มการทำงานของเซิร์ฟเวอร์ใน XAMPP:
+    เปิดโปรแกรม XAMPP แล้วไปที่หน้า Manage Servers
+    กดปุ่ม Start ที่ MySQL Database และ Apache Web Server
+5. การสร้างตารางในฐานข้อมูล:
+    กลับมาที่หน้า VSCode และใน Terminal ใช้คำสั่งต่อไปนี้เพื่อสร้างตารางในฐานข้อมูล:
+       php artisan migrate
+6. การเปิดหน้าเว็บ:
+    หลังจากสร้างตารางเรียบร้อยแล้ว สามารถเปิดเว็บผ่านทาง localhost โดยใช้ลิงก์นี้:
+       http://localhost/bangkok-post/public/
+7. การสร้างผู้ใช้:
+    สร้างผู้ใช้ใหม่เพื่อเข้าใช้งานโปรเจค
+8. การสร้างคำถาม:
+    เข้าไปที่หน้า create question เพื่อสร้างคำถามจำนวน 10 ข้อ
+9. การดูและตอบคำถาม:
+    หลังจากสร้างคำถามเสร็จแล้ว ไปที่หน้า questionnaires เพื่อดูหัวข้อคำถาม
+    กดที่ปุ่ม "ตอบ" เพื่อเข้าสู่หน้าตอบคำถาม
+    หลังจากตอบคำถามเสร็จแล้ว สามารถดูคำตอบของคุณได้ในหน้า My Answer
