@@ -1,7 +1,7 @@
 วิธีการเปิดโปรเจค postQA (Laravel Framework)
 1. Clone โปรเจค:
     เปิดเทอร์มินัลหรือ Command Prompt แล้วใช้คำสั่งด้านล่างเพื่อทำการ clone โปรเจคจาก GitHub ลงในเครื่องของคุณ:
-       git clone https://github.com/5935512009/postQA.git
+      * git clone https://github.com/5935512009/postQA.git
     ให้วางโฟลเดอร์ที่ clone มานี้ในไดเรกทอรี /htdocs ภายในโฟลเดอร์ xampp เพื่อให้สามารถเชื่อมต่อกับฐานข้อมูล phpMyAdmin ได้
 2. ปิดโปรเจคใน VSCode:
     เปิดโฟลเดอร์โปรเจคใน Visual Studio Code (VSCode)
